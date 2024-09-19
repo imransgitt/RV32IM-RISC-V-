@@ -37,6 +37,12 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 
 ## Block level design of the datapath of the processor
 
-![M extension Instructions Format](processor_image.png)
+![Block level Datapath](processor_image.png)
+
+
+## Control unit
+
+![Block level Controller](control_unit.png)
+
 
 
