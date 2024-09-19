@@ -30,5 +30,13 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 
 ![Core Instructions Format](core_instruction_format.png)
 
+![Base interger Instructions set Format](integer_instruction_format.png)
+
+![M extension Instructions Format](M_extension_instruction_format.png)
+
+
+## Block level design of the datapath of the processor
+
+![M extension Instructions Format](processor_image.png)
 
 
