@@ -73,4 +73,35 @@ allowing them to be used in operations within the datapath.
 - **Branch/Jump Unit:** Determines the next PC value for control flow instructions such as branches and jumps.
 
 
+## Control Signals for Standard Integer Instructions
+
+This table outlines the control signals for different types of RISC-V standard integer instructions in the RV32IM processor design.
+
+| `op` | `Instruction` | `RegWrite` | `ImmSrc` | `ALUSrc` | `MemWrite` | `ResultSrc` | `Branch` | `ALUOp` |
+|:----:|:-------------:|:----------:|:--------:|:--------:|:----------:|:-----------:|:--------:|:-------:|
+| 3    | `lw`          | 1          | 00       | 1        | 0          | 1           | 0        | 00      |
+| 35   | `sw`          | 0          | 01       | 1        | 1          | X           | 0        | 00      |
+| 51   | `R-type`      | 1          | XX       | 0        | 0          | 0           | 0        | 10      |
+| 99   | `beq`         | 0          | 10       | 0        | 0          | X           | 1        | 01      |
+| 19   | `I-type`      | 1          | 00       | 1        | 0          | 0           | 0        | 10      |
+| 111  | `J-type`      | 1          | 11       | 1        | 0          | 0           | 1        | 00      |
+| 103  | `B-type`      | 0          | 10       | 0        | 0          | X           | 1        | 01      |
+
+### Control Signal Definitions:
+- **RegWrite:** Controls whether the register file is written (1) or not (0).
+- **ImmSrc:** Determines the source of the immediate value:
+  - 00: Load/store instructions
+  - 01: Store instructions (e.g., `sw`)
+  - 10: Branch instructions (e.g., `beq`)
+  - 11: Jump instructions (e.g., `jal`)
+- **ALUSrc:** Selects whether the second ALU operand is a register (0) or an immediate value (1).
+- **MemWrite:** Controls whether memory is written (1) or not (0).
+- **ResultSrc:** Determines the source of the value to write back to the register file (e.g., 1 for memory load, 0 for ALU result).
+- **Branch:** Indicates whether the instruction is a branch or jump (1) or not (0).
+- **ALUOp:** Specifies the operation performed by the ALU (e.g., 00 for addition, 01 for subtraction, 10 for logic operations).
+
+
+
+
+
 
