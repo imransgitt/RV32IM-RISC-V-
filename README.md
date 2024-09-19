@@ -45,4 +45,8 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 ![Block level Controller](control_unit.png)
 
 
+## Top 
+
+![Block level Top](Top_image.png)
+
 
