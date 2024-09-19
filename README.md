@@ -47,6 +47,6 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 
 ## Top 
 
-![Block level Top](Top_image.png)
+![Top](Top_image.png)
 
 
