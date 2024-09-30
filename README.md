@@ -86,10 +86,7 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
    - Input bus for fetching instructions from memory or instruction cache.
    - Width is typically 32 bits.
 
-6. **Address Bus (`addr_in`)**:
-   - Address lines for instruction/data memory access or peripheral communication.
-
-7. **Control Signals (`control_in`)**:
+6. **Control Signals (`control_in`)**:
    - Additional control signals, depending on design complexity. These can be used for components like memory management units (MMU) or coprocessors.
 
 ---
@@ -111,11 +108,7 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 4. **Instruction Outputs (`instr_out`)**:
    - Typically used if the processor interacts with an instruction cache or pre-fetch mechanism.
 
-5. **Status and Debug Pins (`status`, `debug_out`)**:
-   - Pins used to monitor the status or health of the processor. Useful for debugging purposes.
-   - Can include signals for halted states, error flags, or performance metrics.
-
-6. **Interrupt Acknowledgment (`irq_ack`)**:
+5. **Interrupt Acknowledgment (`irq_ack`)**:
    - Outputs to acknowledge that an interrupt was received and handled.
 
 ---
@@ -142,11 +135,14 @@ This description outlines the input and output pins needed for an RV32IM RISC-V 
 
 ### Controller
 The **controller** is responsible for generating control signals based on the decoded instruction. It manages the overall operation of the processor by coordinating the flow of data between different units. Key responsibilities include:
+
 - **Instruction Decoding:** Decodes the opcode and generates the appropriate control signals for the datapath.
 - **ALU Control:** Selects the correct operation (e.g., addition, subtraction, shifting) for the ALU based on the instruction type.
 - **Control Signal Generation:** Produces signals to control data movement, memory access, branch decisions, and register writes.
 - **Pipeline Control:** Manages stall and flush signals for pipeline hazards (e.g., branch misprediction, load-use data hazards).
 - **M Extension Support:** Provides specific control signals for multiplication and division instructions as part of the M extension.
+
+---
 
 ### Datapath
 The **datapath** is the part of the processor that performs arithmetic operations, data transfers, and other computations. It is composed of the following main components:
