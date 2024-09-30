@@ -10,10 +10,14 @@ The processor supports:
 - 32-bit base integer instructions (RV32I)
 - Multiplication and division instructions (M-extension)
 
+---
+
 ## Features
 - **Architecture:** 32-bit RISC-V (RV32IM)
 - **Extensions:** M-extension (Multiplication and Division)
 - **Synthesis:** FPGA and ASIC synthesis flows
+
+---
 
 ## Instruction Set Architecture (ISA)
 
@@ -34,26 +38,31 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 
 ![M extension Instructions Format](M_extension_format.png)
 
+---
 
 ## Block level design of the datapath of the processor
 
 ![Block level Datapath](processor_image.png)
 
+---
 
 ## Control unit
 
 ![Block level Controller](control_unit.png)
 
+---
 
 ## Top 
 
 ![Top](Top_image.png)
 
+---
 
 ## Block level I/O's 
 
 ![Top](Top1.png)
 
+---
 
 # RV32IM RISC-V Processor Top-Level I/O Pin Description
 
@@ -126,7 +135,7 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 
 This description outlines the input and output pins needed for an RV32IM RISC-V processor design. You can extend or modify these signals based on the specific requirements of your processor or peripherals.
 
-
+---
 
 
 ## Processor Components
@@ -151,6 +160,7 @@ allowing them to be used in operations within the datapath.
 - **Forwarding/Bypass Logic:** Helps resolve data hazards in the pipeline by forwarding data from later stages.
 - **Branch/Jump Unit:** Determines the next PC value for control flow instructions such as branches and jumps.
 
+---
 
 ## Control Signals for Standard Integer Instructions
 
@@ -179,7 +189,7 @@ This table outlines the control signals for different types of RISC-V standard i
 - **Branch:** Indicates whether the instruction is a branch or jump (1) or not (0).
 - **ALUOp:** Specifies the operation performed by the ALU (e.g., 00 for addition, 01 for subtraction, 10 for logic operations).
 
-
+---
 
 
 
