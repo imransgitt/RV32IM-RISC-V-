@@ -50,6 +50,12 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 ![Top](Top_image.png)
 
 
+## Block level I/O's 
+
+![Top](Top1.png)
+
+
+
 ## Processor Components
 
 ### Controller
