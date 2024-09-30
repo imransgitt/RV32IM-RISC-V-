@@ -55,6 +55,79 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 ![Top](Top1.png)
 
 
+# RV32IM RISC-V Processor Top-Level I/O Pin Description
+
+## Input Pins:
+
+1. **Clock (`clk`)**:
+   - Provides the processor's clock signal, dictating the operating pace.
+
+2. **Reset (`reset` or `rst_n`)**:
+   - Resets the processor to a known state. Typically, this is an active-low signal (`rst_n`).
+
+3. **Interrupts (`irq`)**:
+   - External interrupt signals to handle exceptions and interrupts.
+   - Supports multiple interrupt lines (e.g., `irq[NUM]`).
+
+4. **Data Inputs (`data_in`)**:
+   - Input data lines for interfacing with memory, peripherals, or external devices.
+   - Typically 32-bit wide for RV32IM.
+
+5. **Instruction Inputs (`instr_in`)**:
+   - Input bus for fetching instructions from memory or instruction cache.
+   - Width is typically 32 bits.
+
+6. **Address Bus (`addr_in`)**:
+   - Address lines for instruction/data memory access or peripheral communication.
+
+7. **Control Signals (`control_in`)**:
+   - Additional control signals, depending on design complexity. These can be used for components like memory management units (MMU) or coprocessors.
+
+---
+
+## Output Pins:
+
+1. **Data Outputs (`data_out`)**:
+   - Output data lines for sending data to memory, peripherals, or external systems.
+   - Typically 32-bit wide for RV32IM.
+
+2. **Address Outputs (`addr_out`)**:
+   - Address bus to indicate memory addresses or device locations for data/instruction access.
+   - Typically 32-bit wide.
+
+3. **Control Outputs (`control_out`)**:
+   - Outputs to control external memory, peripherals, or I/O operations.
+   - Can include signals like read/write enable, memory select, or data valid.
+
+4. **Instruction Outputs (`instr_out`)**:
+   - Typically used if the processor interacts with an instruction cache or pre-fetch mechanism.
+
+5. **Status and Debug Pins (`status`, `debug_out`)**:
+   - Pins used to monitor the status or health of the processor. Useful for debugging purposes.
+   - Can include signals for halted states, error flags, or performance metrics.
+
+6. **Interrupt Acknowledgment (`irq_ack`)**:
+   - Outputs to acknowledge that an interrupt was received and handled.
+
+---
+
+## Memory Interface (for Cache or Main Memory):
+
+1. **Memory Read Enable (`mem_read_en`)**:
+   - Signals that the processor is performing a read operation from memory or cache.
+
+2. **Memory Write Enable (`mem_write_en`)**:
+   - Signals that the processor is writing data to memory.
+
+3. **Memory Data Valid (`mem_data_valid`)**:
+   - Indicates that data on the memory bus is valid and ready for use.
+
+---
+
+This description outlines the input and output pins needed for an RV32IM RISC-V processor design. You can extend or modify these signals based on the specific requirements of your processor or peripherals.
+
+
+
 
 ## Processor Components
 
