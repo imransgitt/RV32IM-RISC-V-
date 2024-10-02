@@ -125,9 +125,6 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
    - Indicates that data on the memory bus is valid and ready for use.
 
 
-
-This description outlines the input and output pins needed for an RV32IM RISC-V processor design. You can extend or modify these signals based on the specific requirements of your processor or peripherals.
-
 ---
 
 
