@@ -60,7 +60,7 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 
 ## Block level I/O's 
 
-![Top](images/Top1.png)
+![Top](images/Top2.png)
 
 ---
 
