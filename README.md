@@ -68,65 +68,42 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 
 ## Input Pins:
 
-1. **Clock (`clk`)**:
+1. **Clock (`i_clk`)**:
    - Provides the processor's clock signal, dictating the operating pace.
 
-2. **Reset (`reset` or `rst_n`)**:
+2. **Reset (`i_reset`)**:
    - Resets the processor to a known state. Typically, this is an active-low signal (`rst_n`).
 
-3. **Interrupts (`irq`)**:
-   - External interrupt signals to handle exceptions and interrupts.
-   - Supports multiple interrupt lines (e.g., `irq[NUM]`).
-
-4. **Data Inputs (`data_in`)**:
-   - Input data lines for interfacing with memory, peripherals, or external devices.
+3. **Data Inputs (`i_data_read`)**:
+   - Input data lines for interfacing with memory, peripherals, or external devices, usually data read in load instruction.
    - Typically 32-bit wide for RV32IM.
 
-5. **Instruction Inputs (`instr_in`)**:
-   - Input bus for fetching instructions from memory or instruction cache.
+4. **Instruction Inputs (`i_instr`)**:
+   - Input bus for fetching instructions from instruction memory.
    - Width is typically 32 bits.
 
-6. **Control Signals (`control_in`)**:
-   - Additional control signals, depending on design complexity. These can be used for components like memory management units (MMU) or coprocessors.
+5. **Control Signals (`i_control`)**:
+   - Control signals received typically from AHB controller or the DMA controller.
 
 ---
 
 ## Output Pins:
 
-1. **Data Outputs (`data_out`)**:
-   - Output data lines for sending data to memory, peripherals, or external systems.
+1. **Data Outputs (`o_data_write`)**:
+   - Output data lines for sending data to memory, peripherals, or external systems, usually data written in store 
+     insruction.
    - Typically 32-bit wide for RV32IM.
 
-2. **Address Outputs (`addr_out`)**:
-   - Address bus to indicate memory addresses or device locations for data/instruction access.
-   - Typically 32-bit wide.
+4. **Instruction Output (`o_pc`)**:
+   - Typically sent to the AHB bus to fetch the next instruction from the instruction memory.
 
-3. **Control Outputs (`control_out`)**:
-   - Outputs to control external memory, peripherals, or I/O operations.
-   - Can include signals like read/write enable, memory select, or data valid.
+5. **Memory Read Enable (`o_mem_read`)**:
+   - Control signal such that the processor is performing a read operation from memory or cache.
 
-4. **Instruction Outputs (`instr_out`)**:
-   - Typically used if the processor interacts with an instruction cache or pre-fetch mechanism.
-
-5. **Interrupt Acknowledgment (`irq_ack`)**:
-   - Outputs to acknowledge that an interrupt was received and handled.
+6. **Memory Write Enable (`o_mem_write`)**:
+   - Control signal such that the processor is writing data to memory.
 
 ---
-
-## Memory Interface (for Cache or Main Memory):
-
-1. **Memory Read Enable (`mem_read_en`)**:
-   - Signals that the processor is performing a read operation from memory or cache.
-
-2. **Memory Write Enable (`mem_write_en`)**:
-   - Signals that the processor is writing data to memory.
-
-3. **Memory Data Valid (`mem_data_valid`)**:
-   - Indicates that data on the memory bus is valid and ready for use.
-
-
----
-
 
 ## Processor Components
 
@@ -136,7 +113,6 @@ The **controller** is responsible for generating control signals based on the de
 - **Instruction Decoding:** Decodes the opcode and generates the appropriate control signals for the datapath.
 - **ALU Control:** Selects the correct operation (e.g., addition, subtraction, shifting) for the ALU based on the instruction type.
 - **Control Signal Generation:** Produces signals to control data movement, memory access, branch decisions, and register writes.
-- **Pipeline Control:** Manages stall and flush signals for pipeline hazards (e.g., branch misprediction, load-use data hazards).
 - **M Extension Support:** Provides specific control signals for multiplication and division instructions as part of the M extension.
 
 ---
@@ -150,7 +126,6 @@ The **datapath** is the part of the processor that performs arithmetic operation
 - **Immediate Extension Block:** Extends immediate values (e.g., 12-bit or 20-bit immediate) from instructions to 32 bits, 
 allowing them to be used in operations within the datapath.
 - **Memory Access:** Supports load and store instructions to access data memory.
-- **Forwarding/Bypass Logic:** Helps resolve data hazards in the pipeline by forwarding data from later stages.
 - **Branch/Jump Unit:** Determines the next PC value for control flow instructions such as branches and jumps.
 
 ---
