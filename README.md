@@ -42,7 +42,7 @@ Each instruction follows a fixed 32-bit format. Below is a representation of the
 
 ## Block level design of the datapath of the processor
 
-![Block level Datapath](images/processor_image1.png)
+![Block level Datapath](images/processor_image1.jpg)
 
 ---
 
