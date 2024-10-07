@@ -32,35 +32,35 @@ The RV32I is the base integer instruction set for the RISC-V architecture. It in
 
 Each instruction follows a fixed 32-bit format. Below is a representation of these formats:
 
-![Core Instructions Format](core_instruction_format.png)
+![Core Instructions Format](images/core_instruction_format.png)
 
-![Base interger Instructions set Format](integer_instruction_format.png)
+![Base interger Instructions set Format](images/integer_instruction_format.png)
 
-![M extension Instructions Format](M_extension_format.png)
+![M extension Instructions Format](images/M_extension_format.png)
 
 ---
 
 ## Block level design of the datapath of the processor
 
-![Block level Datapath](processor_image.png)
+![Block level Datapath](images/processor_image.png)
 
 ---
 
 ## Control unit
 
-![Block level Controller](control_unit.png)
+![Block level Controller](images/control_unit.png)
 
 ---
 
 ## Top 
 
-![Top](Top_image.png)
+![Top](images/Top_image.png)
 
 ---
 
 ## Block level I/O's 
 
-![Top](Top1.png)
+![Top](images/Top1.png)
 
 ---
 
