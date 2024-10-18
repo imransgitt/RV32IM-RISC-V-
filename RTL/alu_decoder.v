@@ -37,20 +37,20 @@ always @(*) begin
             endcase
 				
 				
-		  2'b11:
+ 	2'b11:
 			                  //***M-extension (R-type)***//
 									
-			   case (funct3)
-			 	    3'b000: ALUControl = 4'b1001; //mul
-				    3'b001: ALUControl = 4'b1010; //mulh
-					 3'b010: ALUControl = 4'b1011; //mulsu
-				    3'b011: ALUControl = 4'b1100; //mulu
-					 3'b100: ALUControl = 4'b1101; //div 
-				    3'b101: ALUControl = 4'b1110; //divu
-					 3'b110: ALUControl = 4'b1111; //rem
-				    default:ALUControl = 4'bxxxx; // ???
-		      endcase
-			
+		 case (funct3)
+			 3'b000: ALUControl = 4'b1001; //mul
+			 3'b001: ALUControl = 4'b1010; //mulh
+			 3'b010: ALUControl = 4'b1011; //mulsu
+	         	 3'b011: ALUControl = 4'b1100; //mulu
+			 3'b100: ALUControl = 4'b1101; //div 
+			 3'b101: ALUControl = 4'b1110; //divu
+			 3'b110: ALUControl = 4'b1111; //rem
+			 default:ALUControl = 4'bxxxx; // ???
+		endcase
+			 
 	
     endcase
 end
