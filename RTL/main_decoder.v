@@ -4,7 +4,7 @@
 module main_decoder (
     input  [6:0] op,
     input  [2:0] funct3,
-	 input  [6:0] funct7,
+    input  [6:0] funct7,
     output [1:0] ResultSrc,
     output       MemWrite, Branch, ALUR31, ALUSrc,
     output       RegWrite, Zero, Jump, Jalr,
@@ -37,14 +37,14 @@ always @(*) begin
                     end
         7'b0110011: begin  //R-type (normal and M-extention)
 									 
-									if(funct7==7'b0000010)	 //M-extension (R-type)  
-								   controls = 17'b1_xx_0_0_00_0_11_0_00_010_0; 
+		     if(funct7==7'b0000010)	 //M-extension (R-type)  
+		     	controls = 17'b1_xx_0_0_00_0_11_0_00_010_0; 
 									
-									else   //Normal (R-type)
-									controls = 17'b1_xx_0_0_00_0_10_0_00_010_0; 
+		      else   //Normal (R-type)
+			controls = 17'b1_xx_0_0_00_0_10_0_00_010_0; 
 						
-		  
-						  end
+		      end
+	    
         7'b1100011: controls = 17'b0_10_0_0_00_1_01_0_00_010_0; // B-type
 		  
         7'b0010011: controls = 17'b1_00_1_0_00_0_10_0_00_010_0; // I–type ALU
@@ -56,7 +56,7 @@ always @(*) begin
 		  
         7'b0110111: controls = 17'b1_xx_x_0_11_0_00_0_00_010_0; // lui
 		  
-        default:    controls = 17'bx_xx_x_x_xx_x_xx_x_xx_xxx_x; // ???
+        default:     controls = 17'bx_xx_x_x_xx_x_xx_x_xx_xxx_x; // ???
     endcase
 
     //Take_Branch = 0;
