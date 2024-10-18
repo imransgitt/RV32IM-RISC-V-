@@ -22,18 +22,15 @@ always @(a, b, alu_ctrl) begin
         4'b0111: alu_out <= a >> b[4:0];   // srl
         4'b1000: alu_out <= a >>> b[4:0];  // sra
 		  
-		  
 		  //M-extension
-		  4'b1001: alu_out <= ($signed(a) * $signed(b));          //mul
-		  4'b1010: alu_out <= ($signed(a) * $signed(b)) >> 32;    //mulh
-		  4'b1011: alu_out <= ($signed(a) * $unsigned(b)) >> 32;  //mulsu
-		  4'b1100: alu_out <= ($unsigned(a) * $unsigned(b)) >> 32;//mulhu
-		  4'b1101: alu_out <= ($signed(a) * $signed(b));		     //div
-        4'b1110: alu_out <= $unsigned(a) / $unsigned(b);        //divu
-		  4'b1111: alu_out <= $signed(a) % $signed(b);            //rem
-		  
-		  
-		  default: alu_out = 0;
+	 4'b1001: alu_out <= ($signed(a) * $signed(b));          //mul
+	 4'b1010: alu_out <= ($signed(a) * $signed(b)) >> 32;    //mulh
+	 4'b1011: alu_out <= ($signed(a) * $unsigned(b)) >> 32;  //mulsu
+	 4'b1100: alu_out <= ($unsigned(a) * $unsigned(b)) >> 32;//mulhu
+	 4'b1101: alu_out <= ($signed(a) * $signed(b));		 //div
+         4'b1110: alu_out <= $unsigned(a) / $unsigned(b);        //divu
+	 4'b1111: alu_out <= $signed(a) % $signed(b);            //rem
+	 default: alu_out = 0;
     endcase
 end
 
